@@ -1,0 +1,164 @@
+#include <stdio.h>
+#include <string.h>
+#include "inputs.h"
+#include "vehiculo.h"
+#include "tipos.h"
+#include "hojaServicio"
+void inicializarVehiculos(Vehiculo vehiculo[], int sizeVehi) {
+	for (int i = 0; i < sizeVehi; i++) {
+		vehiculo[i].idVehiculo = 0;
+	}
+}
+
+int buscarLugarVacio(Vehiculo vehiculo[], int sizeVehi) {
+	int index;
+	index = -1;
+
+	for (int i = 0; i < sizeVehi; i++) {
+		if (vehiculo[i].idVehiculo == 0) {
+			index = i;
+			break;
+		}
+	}
+	return index;
+}
+
+int altaVehiculos(Vehiculo vehiculos[], int sizeVehiculos, Tipo listatipo[],) {
+
+	int index;
+	if (index != -1) {
+		if (utn_getNumero(&vehiculos[index].idVehiculo,
+				"Ingrese ID del vehiculo: ", "\nError ingrese un id valido", 0,
+				100000, 500) == 0) {
+		}
+
+		PedirCadena(vehiculos[index].descripcion, "\nIngrese su descripcion: ");
+
+		pedirCadena(&vehiculos[index].color, "\nIngrese el color del vehiculo");
+
+		mostrarListaTipo(listatipo);
+
+		if (utn_getNumero(&vehiculos[index].idTipo, "\nIngrese ID del tipo: ",
+				"Error ingrese un ID valido", 999, 1002, 500) == 0) {
+		}
+		pedirCadena(vehiculos[index].modelo,
+				"Ingrese el modelo del vehiculo: ");
+
+	}
+
+	return index;
+}
+void mostrarListasVehiculo(Vehiculo vehiculo[], int sizeVehi, Tipo ListaTipo[]) {
+	for (int i = 0; i < sizeVehi - 1; i++) {
+		for (int j = i + 1; j < 4; j++) {
+			if (vehiculo[i].idVehiculo != 0
+					&& vehiculo[i].idTipo == ListaTipo[j].id) {
+				if (vehiculo[i].idVehiculo == 1) {
+					printf(
+							"\nID VEHICULO: %d    DESCRIPCION: %s MODELO: %d COLOR: %s ID TIPO: %d",
+							vehiculo[i].idVehiculo, vehiculo[i].descripcion,
+							vehiculo[i].modelo, vehiculo[i].color,
+							vehiculo[i].idTipo);
+				} else if (vehiculo[i].idVehiculo == 2) {
+					printf(
+							"\nID VEHICULO: %d    DESCRIPCION: %s MODELO: %d COLOR: %s ID TIPO: %d",
+							vehiculo[i].idVehiculo, vehiculo[i].descripcion,
+							vehiculo[i].modelo, vehiculo[i].color,
+							vehiculo[i].idTipo);
+				} else if (vehiculo[i].idVehiculo == 3) {
+					printf(
+							"\nID VEHICULO: %d    DESCRIPCION: %s MODELO: %d COLOR: %s ID TIPO: %d",
+							vehiculo[i].idVehiculo, vehiculo[i].descripcion,
+							vehiculo[i].modelo, vehiculo[i].color,
+							vehiculo[i].idTipo);
+				} else if (vehiculo[i].idVehiculo == 4) {
+					printf(
+							"\nID VEHICULO: %d    DESCRIPCION: %s MODELO: %d COLOR: %s ID TIPO: %d",
+							vehiculo[i].idVehiculo, vehiculo[i].descripcion,
+							vehiculo[i].modelo, vehiculo[i].color,
+							vehiculo[i].idTipo);
+				} else if (vehiculo[i].idVehiculo == 5) {
+					printf(
+							"\nID VEHICULO: %d    DESCRIPCION: %s MODELO: %d COLOR: %s ID TIPO: %d",
+							vehiculo[i].idVehiculo, vehiculo[i].descripcion,
+							vehiculo[i].modelo, vehiculo[i].color,
+							vehiculo[i].idTipo);
+				}
+			}
+		}
+	}
+
+}
+int modificarPrecioVehiculo(Servicio servicio[], int sizeVehi, Tipo listaTipo, Vehiculo vehiculo) {
+	int retorno = -1;
+	int precioNuevo;
+	int idIngresado;
+	mostrarListaTipo(vehiculo, sizeVehi, listaTipo);
+	if (utn_getNumero(&idIngresado, "\nIngrese ID del vehiculo: ",
+			"\nError ingrese un ID valido: \n", 1, 999999, 50) == 0) {
+	}
+
+	for (int i = 0; i < sizeVehi; i++) {
+		if (servicio[i].idVehiculo == idIngresado) {
+			mostrarListaTipo(servicio, sizeVehi, listaTipo);
+			if (utn_getNumero(&precioNuevo,
+					"\nIngrese el nuevo precio del vehiculo: ",
+					"\nError Ingrese un valor valido: ", 0, 999999, 500) == 0) {}
+			servicio[i].precioServicio = precioNuevo;
+			retorno = 1;
+			break;
+
+		}
+		else{
+			printf("No se encontro el ID ingresado");
+			break;
+		}
+	}
+	return retorno;
+
+}
+int modificarDescripcion(Vehiculo vehiculo[], int sizeVehi, Tipo listaTipo){
+ int retorno = -1;
+ int idIngresado;
+ char descripcionNueva[30];
+ 	 mostrarListaTipo(vehiculo, sizeVehi, listaTipo);
+ 	 if(utn_getNumero(&idIngresado, "\nIngrese ID del vehiculo: ","\nError ingrese un id valido: ",1,999999,500)== 0){}
+
+ 	 for (int i =0;i < sizeVehi; i++){
+ 		 if(vehiculo[i].idVehiculo == idIngresado){
+ 			 mostrarListaTipo(vehiculo, sizeVehi, listaTipo);
+ 			 pedirCadena(&vehiculo[i].descripcion,"\nIngrese una nueva descripcion");
+ 			 retorno = 1;
+ 			 break;
+ 		 }
+ 		 else {
+ 			 printf("No se encontro el id");
+ 			 break;
+ 		 }
+ 	 }
+
+ return retorno;
+}
+int bajaVehiculo(Vehiculo vehiculo[], int sizeVehi, Tipo listaTipo){
+	int retorno = -1;
+	int idIngresado;
+
+		mostrarListaTipo(vehiculo, sizeVehi, listaTipo);
+		if(utn_getNumero(&idIngresado,"\nIngrese un ID","\nError Ingrese un id valido",1,999999,500)==0){}
+		for(int i=0; i <sizeVehi; i++){
+			if(vehiculo[i].idVehiculo == idIngresado){
+				vehiculo[i].idVehiculo = 0;
+				retorno =1;
+				break;
+
+			}
+			else{
+				printf("\nError, no se encontro el id del vehiculo");
+				break;
+			}
+		}
+	return retorno;
+
+}
+
+

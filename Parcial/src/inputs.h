@@ -1,0 +1,46 @@
+
+#ifndef INPUTS_H_
+#define INPUTS_H_
+
+
+/// @brief solicita un numero al usuario, luego de verificar devuelve el resultado
+/// @param pResultado puntero al espacio de memoria donde se dejara el resultado de la funcion
+/// @param mensaje el mensaje a ser mostrado
+/// @param mensajeError el mensaje de error a ser mostrado
+/// @param minimo es el número maximo a ser aceptado
+/// @param maximo es el número minimo a ser aceptado
+/// @param reintentos la cantidad de reintentos
+/// @return retorna 0 si se obtubo el número y -1 si no
+int utn_getNumero(int* pResultado, char* mensaje, char* mensajeError, int minimo, int maximo, int reintentos);
+
+/// @brief Pide una cadena y la valida
+/// @param nombre variable donde se almacenara la cadena
+/// @param mensaje a mostrar al usuario
+void pedirCadena(char nombre[], char mensaje[]);
+
+/// @brief valida si un dato es de tipo flotante o entero
+/// @param fm
+/// @param var
+/// @return
+int validarFloat(const char* fm, void* var);
+
+/// @brief Pide una cadena y la valida
+/// @param nombre variable donde se almacenara la cadena
+/// @param mensaje a mostrar al usuario
+int validarCadena(char nombre[]);
+
+
+/// @brief lee el stdin hasta que encuentra un '\n' o hsta que haya
+/// copiado en cadena un maximo de 'longitud' -1 caracteres
+/// @param pResultado puntero al espacio de memoria donde se copiara
+/// donde se copiara la cadena obtenida
+/// @param longitud define el tamaño de la cadea
+/// @return retorna 0 (exito) si se obtiene una cadena si no -1 (error)
+
+
+
+/// @brief obtiene un número entero
+/// @param pResultado puntero al espacio de memoria donde se dejara el resultado de la funcion
+/// @return retorna 0 (exito) si se obtiene una cadena si no -1 (error)
+
+#endif /* INPUTS_H_ */

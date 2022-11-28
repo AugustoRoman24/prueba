@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include "HojaServicio.h"
+
+int altaHojaServicio(Fecha fecha[]){
+	int retorno = -1;
+	int index;
+	pedirCadena(fecha[i].)
+
+	return retorno;
+}

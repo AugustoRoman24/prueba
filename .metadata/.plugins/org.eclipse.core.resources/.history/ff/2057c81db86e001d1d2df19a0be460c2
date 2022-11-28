@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "HojaServicio.h"
+#include "inputs.h"
+void inicializarHojaServicio(Servicio servicio[], int sizeServicio){
+	for(int i = 0; i < sizeServicio; i++){
+			servicio[i].idHoja = 2000;
+	}
+}
+int buscarLugarVacio(Servicio servicio[], int sizeServicio){
+	int index;
+	index = -1;
+	for(int i = 0; i < sizeServicio; i++){
+		if(servicio[i].idHoja == 0){
+			index = i;
+			break;
+		}
+	}
+	return index;
+}
+
+
+
+
+int altaHojaServicio(){
+	int retorno = -1;
+	int index;
+
+
+
+
+
+	return retorno;
+}

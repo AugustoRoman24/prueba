@@ -1,0 +1,26 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "inputs.h"
+#include "tipos.h"
+
+int main(void) {
+	setbuf(stdout, NULL);
+	int opcion;
+	int retorno = 0;
+
+
+
+	do{
+		if(utn_getNumero(&opcion, "\n1-Alta Vehiculo\n2-Modificar vehiculo\n3-Baja vehiculo\n4-Listar vehiculos\n5-Listar tipos\n6-Alta hoja de servicio\n7-Listar hoja de servicios\n8-Informes\n9-Salir\n\nIngrese una opcion: ","\nError ingrese una opcion valida\n", 1,11,50) == 0) {}
+
+		switch(opcion){
+		case 1:
+
+			break;
+		}
+
+	}while(opcion != 9);
+	return retorno;
+}
+

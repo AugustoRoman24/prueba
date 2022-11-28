@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include "HojaServicio.h"
+
+int altaHojaServicio(Fecha fecha[]){
+	int retorno = -1;
+	int index;
+	pedirCadena(&fecha[index].dia,"\nIngrese el dia: ");
+	pedirCadena(&fecha[index].mes,"\nIngrese el mes: ");
+	printf("\nIngrese el anio");
+	fflush(stdin);
+	scanf("%d",&fecha[index].anio);
+
+	return retorno;
+}

@@ -1,0 +1,20 @@
+#ifndef HOJASERVICIO_H_
+#define HOJASERVICIO_H_
+
+typedef struct{
+	int idHoja;
+	int idVehiculo;
+	char descripcion[30];
+	int precioServicio;
+
+}Servicio;
+
+typedef struct{
+	int dia;
+	int mes;
+	int anio;
+
+
+}Fecha;
+
+#endif /* HOJASERVICIO_H_ */

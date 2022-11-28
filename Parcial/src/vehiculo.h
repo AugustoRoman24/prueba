@@ -1,0 +1,30 @@
+
+
+#ifndef VEHICULO_H_
+#define VEHICULO_H_
+#include "tipos.h"
+
+
+typedef struct {
+	int idVehiculo;
+	char descripcion[30];
+	int idTipo;
+	char color [10];
+	int modelo;
+
+}Vehiculo;
+
+int altaVehiculos(Vehiculo vehiculos[], int sizeVehiculos, Tipo listatipo[]);
+void inicializarVehiculos(Vehiculo vehiculo[], int sizeVehi);
+int buscarLugarVacio(Vehiculo vehiculo[], int sizeVehi);
+void mostrarListasVehiculo(Vehiculo vehiculo[], int sizeVehi, Tipo ListaTipo[]);
+int modificarPrecioVehiculo(Vehiculo vehiculo[], int sizeVehi, Tipo listaTipo);
+int modificarDescripcion(Vehiculo vehiculo[], int sizeVehi, Tipo listaTipo);
+int bajaVehiculo(Vehiculo vehiculo[], int sizeVehi, Tipo listaTipo);
+
+
+
+
+
+
+#endif /* VEHICULO_H_ */

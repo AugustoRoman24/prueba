@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "HojaServicio.h"
+
+void inicializarHojaServicio(Servicio servicio[], int sizeServicio){
+	for(int i = 0; i < sizeServicio; i++){
+			servicio[i].idHoja = 2000;
+	}
+}
+int buscarLugarVacio(Servicio servicio[], int sizeServicio){
+	int index;
+	index = -1;
+	for(int i = 0; i < sizeServicio; i++){
+		if(servicio[i].idHoja == 0){
+			index = i;
+			break;
+		}
+	}
+	return index;
+}
+
+
+
+
+int altaHojaServicio(Fecha fecha[]){
+	int retorno = -1;
+	int index;
+
+
+
+
+	/*pedirCadena(&fecha[index].dia,"\nIngrese el dia: ");
+	pedirCadena(&fecha[index].mes,"\nIngrese el mes: ");
+	printf("\nIngrese el anio");
+	fflush(stdin);
+	scanf("%d",&fecha[index].anio);*/
+
+	return retorno;
+}

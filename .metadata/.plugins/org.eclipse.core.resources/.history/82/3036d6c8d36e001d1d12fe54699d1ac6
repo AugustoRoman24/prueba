@@ -1,0 +1,153 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "inputs.h"
+#include <ctype.h>
+
+static int getInt(int *pResultado);
+static int esNumerica(char *cadena);
+static int myGets(char *cadena, int longitud);
+
+static int myGets(char *cadena, int longitud) {
+	fflush(stdin);
+	fgets(cadena, longitud, stdin);
+	cadena[strlen(cadena) - 1] = '\0';
+	return 0;
+}
+
+static int getInt(int *pResultado) {
+	int retorno = -1;
+	char bufferString[4096];
+
+	if (myGets(bufferString, sizeof(bufferString)) == 0
+			&& esNumerica(bufferString)) {
+		retorno = 0;
+		*pResultado = atoi(bufferString);
+	}
+	return retorno;
+}
+
+static int esNumerica(char *cadena) {
+	int retorno = 1;
+	int i = 0;
+
+	if (cadena[0] == '-') {
+		i = 1;
+	}
+
+	for (; cadena[i] != '\0'; i++) {
+		if (cadena[i] > '9' || cadena[i] < '0') {
+			retorno = 0;
+			break;
+		}
+	}
+	return retorno;
+}
+
+int utn_getNumero(int *pResultado, char *mensaje, char *mensajeError,
+		int minimo, int maximo, int reintentos) {
+	int retorno = -1;
+	int bufferInt;
+
+	if (pResultado != NULL && mensaje != NULL && mensajeError != NULL
+			&& minimo <= maximo && reintentos >= 0) {
+		do {
+			printf("%s", mensaje);
+			if (getInt(&bufferInt) == 0 && bufferInt >= minimo
+					&& bufferInt <= maximo) {
+				*pResultado = bufferInt;
+				retorno = 0;
+				break;
+			}
+			reintentos--;
+			printf("%s", mensajeError);
+		} while (reintentos >= 0);
+	}
+	return retorno;
+}
+
+int validarCadena(char nombre[]) {
+	int retorno = 1;
+	int i;
+	for (i = 0; i < strlen(nombre); i++) {
+		if (!((nombre[i] >= 65 && nombre[i] <= 90)
+				|| (nombre[i] >= 97 && nombre[i] <= 122) || (nombre[i] == ' '))) {
+			printf("\nError, solo se admiten letras: ");
+			retorno = 0;
+			break;
+		}
+	}
+	return retorno;
+}
+
+void pedirCadena(char nombre[], char mensaje[]) {
+	int retorno;
+
+	do {
+		printf("\n%s", mensaje);
+		scanf("%s", nombre);
+		retorno = validarCadena(nombre);
+
+	} while (retorno == 0);
+}
+int validarFechas(int dia, int mes, int anio) {
+
+	printf("\nIngrese dia: ");
+	scanf("%d", &dia);
+	printf("\nIngrese el mes: ");
+	scanf("%d", &mes);
+	printf("\nIngrese anio: ");
+	scanf("%d", &anio);
+
+	if (mes >= 1 && mes <= 12) {
+		switch (mes) {
+		case 1:
+		case 2:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			if (dia >= 1 && dia <= 31) {
+				printf("\nFecha correcta");
+			} else {
+				printf("\nFecha Incorrecta");
+				break;
+			}
+		}
+
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+		if (dia >= 1 && dia <= 30) {
+			printf("\nFecha correcta");
+		} else {
+
+			printf("\nFECHA INCORRECTA");
+			break;
+		}
+
+
+	}
+
+	return 0;
+}
+int validarFloat(const char* fm, void* var)
+{
+    int ch;
+
+    if(!scanf(fm, var))
+    {
+        while((ch = getchar()) != '\n' && ch != EOF);
+        return 1;
+    }
+
+    if(getchar() != '\n')
+    {
+        while((ch = getchar()) != '\n' && ch != EOF);
+        return 1;
+    }
+    return 0;
+}

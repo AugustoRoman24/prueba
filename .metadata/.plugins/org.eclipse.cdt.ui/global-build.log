@@ -1,0 +1,22 @@
+01:20:42 **** Incremental Build of configuration Debug for project Parcial ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\inputs.o" "..\\src\\inputs.c" 
+..\src\inputs.c: In function 'validarFechas':
+..\src\inputs.c:120:3: error: case label not within a switch statement
+  120 |   case 4:
+      |   ^~~~
+..\src\inputs.c:121:4: error: break statement not within loop or switch
+  121 |    break;
+      |    ^~~~~
+..\src\inputs.c:122:3: error: case label not within a switch statement
+  122 |   case 6:
+      |   ^~~~
+..\src\inputs.c:123:3: error: case label not within a switch statement
+  123 |   case 9:
+      |   ^~~~
+..\src\inputs.c:124:3: error: case label not within a switch statement
+  124 |   case 11:
+      |   ^~~~
+..\src\inputs.c:130:4: error: break statement not within loop or switch
+  130 |    break;
+      |    ^~~~~
